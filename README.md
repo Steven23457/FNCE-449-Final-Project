@@ -1,5 +1,5 @@
 # FNCE-449-Final-Project
-Term project for FNCE 449 Block week project
+Term project for FNCE 449 Block week class
 
 # File Explaination
 
