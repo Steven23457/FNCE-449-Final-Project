@@ -282,14 +282,15 @@ def plot_results(plot_df,fold):
     plt.show()
 
 def main():
+    
     returns = get_data()
     
     market_return = returns['S&P 500'].copy()
     sector_returns = returns.drop('S&P 500',axis=1).copy()
 
-
     cv_results,cv_weights = cross_validate(market_return,sector_returns)
-    print(cv_weights.to_markdown())
+    # cv_weights.to_excel(r"C:\Users\steve\Documents\!Fall 2024 Classes\FNCE 449\Final Project CV Weights.xlsx",index=True)
+    print(cv_weights)
 
     fold_count = cv_results['Fold'].iloc[-1]
     cv_metrics = pd.DataFrame()
@@ -303,6 +304,7 @@ def main():
         cv_metrics = pd.concat([cv_metrics,portfolio_metrics],axis=0)
 
     print(cv_metrics)
+    # cv_metrics.to_excel(r"C:\Users\steve\Documents\!Fall 2024 Classes\FNCE 449\Final Project Summary Statistics.xlsx",index=False)
 
 
 if __name__ == "__main__":
